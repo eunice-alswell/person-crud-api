@@ -15,7 +15,8 @@ const DB = process.env.DB;
 try {
     mongoose.connect(DB,{
         useNewUrlParser:true,
-        useUnifiedTopology:true
+        useUnifiedTopology:true,
+        serverSelectionTimeoutMS: 30000, 
     }).catch((err) => {
         console.error('Error connecting to MongoDB Atlas:', err);
       });;
