@@ -30,6 +30,8 @@ const connectToDatabase = async () =>{
 
 connectToDatabase();
 
+mongoose.set('debug', true);
+
 // middleware
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
