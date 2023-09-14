@@ -17,7 +17,7 @@ const connectToDatabase = async () =>{
         await mongoose.connect(DB,{
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 30000, 
+            serverSelectionTimeoutMS: 50000, 
         })
         .then(()=>console.log('Database connected'))
         .catch((err) => {
