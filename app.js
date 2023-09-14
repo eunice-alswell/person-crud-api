@@ -14,14 +14,15 @@ const DB = process.env.DB;
 
 const connectToDatabase = async () =>{
     try {
-        await mongoose.connect( DB,{
-            useNewUrlParser:true,
-            useUnifiedTopology:true,
+        await mongoose.connect(DB,{
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
             serverSelectionTimeoutMS: 30000, 
-        }).catch((err) => {
-            console.error('Error connecting to MongoDB Atlas:', err);
+        })
+        .then(()=>console.log('Database connected'))
+        .catch((err) => {
+            console.log('Error connecting to MongoDB Atlas:', err);
         });;
-        console.log("database connected")
     } catch (e) {
         console.error(e);
     }
@@ -32,6 +33,7 @@ connectToDatabase();
 // middleware
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(express.json());
 
 // routes
 app.post("/api", createPerson);
