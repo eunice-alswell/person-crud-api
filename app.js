@@ -12,18 +12,22 @@ const app = express();
 const PORT = process.env.PORT;
 const DB = process.env.DB;
 
-try {
-    mongoose.connect(DB,{
-        useNewUrlParser:true,
-        useUnifiedTopology:true,
-        serverSelectionTimeoutMS: 30000, 
-    }).catch((err) => {
-        console.error('Error connecting to MongoDB Atlas:', err);
-      });;
-    console.log("database connected")
-} catch (e) {
-    console.error(e);
+const connectToDatabase = async () =>{
+    try {
+        await mongoose.connect( DB,{
+            useNewUrlParser:true,
+            useUnifiedTopology:true,
+            serverSelectionTimeoutMS: 30000, 
+        }).catch((err) => {
+            console.error('Error connecting to MongoDB Atlas:', err);
+        });;
+        console.log("database connected")
+    } catch (e) {
+        console.error(e);
+    }
 };
+
+connectToDatabase();
 
 // middleware
 app.use(bodyParser.urlencoded({extended:true}));
