@@ -119,6 +119,32 @@ To set up and run the API locally for development or testing purposes, follow th
 
 6. The API will be available at `http://localhost:<your-port-number>`.
 
+## Testing API
+
+This API has already been hosted and deployed on a web server using render.com. Below are ways the API can be tested for each CRUD operation:
+
+1. **Create a New Person:**
+   
+   ```
+   curl -X POST -H "Content-Type: application/json" -d '{"id": <unique id>, "name": "John Doe", "age": 30}' https://eunice-person-crud-api.onrender.com/api
+   ```
+2. **Read a Person by ID:**
+   
+   ```
+   curl https://eunice-person-crud-api.onrender.com/api/user-id
+   ```
+
+3. **Update a Person by ID**
+   
+    ```
+    curl -X PUT -H "Content-Type: application/json" -d '{"name": "Updated Name", "age": 35}' https://eunice-person-crud-api.onrender.com/api/user-id
+    ```
+   
+4. **Delete a Person by ID:**
+    
+   ```
+   curl https://eunice-person-crud-api.onrender.com/api/user-id
+
 ## Deployment
 
 To deploy the API to a server or a hosting platform, follow the standard deployment procedures for your chosen platform. Ensure that you set environment variables for the MongoDB URI and port as needed.
