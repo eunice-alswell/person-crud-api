@@ -1,14 +1,44 @@
+
 const Person = require("./person_schema");
+
+const assignCustomId = async () => {
+    // Check if there are already 20 records, you can adjust the condition based on your actual logic
+    const count = await Person.countDocuments();
+    if (count >= 20) {
+        console.log('Cannot assign more than 20 custom IDs.');
+        return null;
+    }
+
+    // Find the highest assigned custom ID
+    const highestCustomId = await Person.findOne({}, { _id: 1 }, { sort: { _id: -1 } });
+
+    // If no record exists yet, start from 1, else increment the highest assigned ID
+    const nextCustomId = highestCustomId ? highestCustomId._id + 1 : 1;
+
+    return nextCustomId;
+};
 
 const personCtrl = {}
 
 // post Requst logic
 personCtrl.createPerson = async (req,res) =>{
     try {
-        let person = new Person(req.body);
-        let result = await person.save();
-        res.status(201).json(person);
-    } catch (err) {
+        const {name}=  req.body;
+
+        const customId = await assignCustomId();
+
+        if (customId) {
+            const person = new Person({
+                _id: customId,
+                name,
+            });
+        
+            await person.save();
+            res.status(201).json(person);
+        }else {
+            res.status(400).json({ error: 'Cannot assign more than 20 custom IDs.' });
+        }
+    }catch (err) {
         res.status(400).json({error:err.message})
         console.error(err);
     }
