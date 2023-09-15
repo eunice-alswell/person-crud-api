@@ -2,6 +2,7 @@
 
 This is a simple REST API that allows you to perform CRUD operations on a "person" resource. 
 It is built using Node.js, Express, and MongoDB (Mongoose) and provides endpoints for creating, reading, updating, and deleting person records.
+Also, it was tested using Postman.
 
 ## Table of Contents
 
