@@ -150,3 +150,23 @@ This API has already been hosted and deployed on a web server using render.com. 
 To deploy the API to a server or a hosting platform, follow the standard deployment procedures for your chosen platform. Ensure that you set environment variables for the MongoDB URI and port as needed.
 
 For example, when deploying on Render.com, you can configure environment variables in the Render dashboard for your application.
+
+## Entity Entity-Relationship (E-R) Diagram
+```
+       +---------------------+
+       |      Database       |
+       +---------------------+
+               |
+               |
+    +----------+---------+
+    |                    |
+    v                    v
++-------+           +---------+
+| Person|           |  Other  |
+|-------|           |  Tables |
+|       |           |         |
+| + _id |<----------|         |
+| + name|           |         |
+| + age |           |         |
++-------+           +---------+
+```
