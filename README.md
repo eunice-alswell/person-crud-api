@@ -271,6 +271,26 @@ To deploy the API to a server or a hosting platform, follow the standard deploym
 
 For example, when deploying on Render.com, you can configure environment variables in the Render dashboard for your application.
 
+
+## Entity Entity-Relationship (E-R) Diagram
+       +---------------------+
+       |      Database       |
+       +---------------------+
+               |
+               |
+    +----------+---------+
+    |                    |
+    v                    v
++-------+           +---------+
+| Person|           |  Other  |
+|-------|           |  Tables |
+|       |           |         |
+| + _id |<----------|         |
+| + name|           |         |
+| + age |           |         |
++-------+           +---------+
+
+
 ## Contributing
 
 Feel free to contribute to this project by opening issues or submitting pull requests. Your contributions are highly appreciated!
