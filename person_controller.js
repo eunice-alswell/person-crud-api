@@ -69,10 +69,8 @@ personCtrl.updatePerson = async (req,res) =>{
         );
         if (!updatedPerson) {
             return res.status(404).json({ error: 'Person not found'});
-          }else{
-            res.send({"Massage":"Person updated"})
           }
-        res.json(updatedPerson);
+        res.json(updatedPerson,{"Massage":"Person updated"});
 
     } catch (err) {
         res.status(400).json({error:err.message})
