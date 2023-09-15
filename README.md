@@ -266,6 +266,11 @@ To deploy this API to a production server, follow these general steps:
 4. Use a process manager like PM2 to keep your Node.js application running in the background.
 5. Set up domain and SSL certificates for secure access.
 
+### **OR**
+To deploy the API to a server or a hosting platform, follow the standard deployment procedures for your chosen platform. Ensure that you set environment variables for the MongoDB URI and port as needed.
+
+For example, when deploying on Render.com, you can configure environment variables in the Render dashboard for your application.
+
 ## Contributing
 
 Feel free to contribute to this project by opening issues or submitting pull requests. Your contributions are highly appreciated!
