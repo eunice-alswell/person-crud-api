@@ -273,6 +273,7 @@ For example, when deploying on Render.com, you can configure environment variabl
 
 
 ## Entity Entity-Relationship (E-R) Diagram
+```
        +---------------------+
        |      Database       |
        +---------------------+
@@ -289,7 +290,7 @@ For example, when deploying on Render.com, you can configure environment variabl
 | + name|           |         |
 | + age |           |         |
 +-------+           +---------+
-
+```
 
 ## Contributing
 
