@@ -70,7 +70,10 @@ personCtrl.updatePerson = async (req,res) =>{
         if (!updatedPerson) {
             return res.status(404).json({ error: 'Person not found'});
           }
-        res.json(updatedPerson,{"Massage":"Person updated"});
+        res.json({
+            message: 'Person updated successfully',
+            updatedPerson
+        });
 
     } catch (err) {
         res.status(400).json({error:err.message})
@@ -87,7 +90,10 @@ personCtrl.deletePerson = async (req,res) =>{
         if (!deletedPerson){
             res.status(404).json({error: "Person not found"});
         }
-        res.status(200).json(deletedPerson,{"Massage":"Person deleted"})
+        res.status(200).json({
+            message: 'Person deleted successfully',
+            deletedPerson
+        });
     } catch (err) {
         res.status(400).json({error:err.message})
         console.error(err)
